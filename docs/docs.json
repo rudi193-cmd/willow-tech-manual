@@ -58,6 +58,64 @@
                 "pages": ["reference/glossary"]
               }
             ]
+          },
+          {
+            "tab": "Workshop (Sticky spine)",
+            "groups": [
+              {
+                "group": "About this edition",
+                "pages": ["workshop/index"]
+              },
+              {
+                "group": "Foundation",
+                "pages": [
+                  "workshop/01-tools-for-the-job",
+                  "workshop/02-scooter-use-and-maintenance",
+                  "workshop/03-fault-diagnosis",
+                  "workshop/04-common-repair-work"
+                ]
+              },
+              {
+                "group": "Engine line",
+                "pages": [
+                  "workshop/05-engine-strip",
+                  "workshop/06-checking-selecting-preparing-engine-components",
+                  "workshop/07-original-spec-engine-rebuild",
+                  "workshop/08-advanced-engine-building",
+                  "workshop/09-exhaust-systems"
+                ]
+              },
+              {
+                "group": "Fuel and sparks",
+                "pages": [
+                  "workshop/10-electrical-and-ignition-systems",
+                  "workshop/11-ignition-timing",
+                  "workshop/12-carburation-and-fuel-system"
+                ]
+              },
+              {
+                "group": "Chassis line",
+                "pages": [
+                  "workshop/13-chassis-strip",
+                  "workshop/14-checking-selecting-preparing-chassis-components",
+                  "workshop/15-wheels-brakes-steering-suspension",
+                  "workshop/16-chassis-rebuild"
+                ]
+              },
+              {
+                "group": "Special parts",
+                "pages": ["workshop/17-special-parts-slimstyles"]
+              },
+              {
+                "group": "Appendices",
+                "pages": [
+                  "workshop/appendix-a-gearbox-identification",
+                  "workshop/appendix-b-wiring-electrical",
+                  "workshop/appendix-c-torque-settings",
+                  "workshop/appendix-d-jetting-standard-machines"
+                ]
+              }
+            ]
           }
         ]
       }

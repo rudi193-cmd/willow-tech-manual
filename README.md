@@ -19,11 +19,11 @@ Mintlify runs inside `docs/` (where `docs.json` lives). It prints a local URL (o
 ## Check and ship
 
 ```bash
-npm run validate    # strict — fails on warnings in CI
-npm run build       # static export (mintlify export)
+npm run check     # internal links (current Mintlify CLI)
+npm run build     # static site → docs/export.zip (uses mintlify@4.2.559 for export)
 ```
 
-`npm run build` writes **`docs/export.zip`** — unpack and publish that tree to any static host, or wire CI to upload it.
+`npm run dev` uses your **installed** Mintlify (newer CLI). `npm run build` pins **4.2.559** because `export` was removed in some later CLI builds.
 
 ## Layout
 
@@ -35,6 +35,7 @@ npm run build       # static export (mintlify export)
 | `docs/architecture/` | System shape |
 | `docs/operator-runbooks/` | How to run and recover |
 | `docs/fleet-process/` | Agents, MCP, ingest, worktrees |
+| `docs/workshop/` | **Sticky spine** — 17 chapters + appendices (workshop manual) |
 | `docs/reference/` | Glossary and tables |
 
 Canon for the narrative: **Willow 1.9** is current production (`willow-1.9`); **2.0** work lives in `willow-sandbox` on disk — the manual states that explicitly so readers are not sent to legacy trees.

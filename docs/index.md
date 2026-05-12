@@ -27,6 +27,8 @@ This manual is the **long-form technical surface** for Willow: the local-first k
 4. [Fleet process](/fleet-process) — fylgja powers, handoffs, worktrees, ingest etiquette.
 5. [Reference](/reference/glossary) — terms and pointers.
 
+**Workshop path:** if you want the **Sticky manual spine** (tools → maintenance → diagnosis → strip → rebuild → appendices), open the **Workshop (Sticky spine)** tab, starting at [Workshop edition](/workshop).
+
 ## Map of the trees (do not guess)
 
 | Line | Role | Typical path on disk |
