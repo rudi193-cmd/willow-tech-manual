@@ -140,6 +140,27 @@
                 "pages": ["owners-manual/quick-reference"]
               }
             ]
+          },
+          {
+            "tab": "Enjoy",
+            "groups": [
+              {
+                "group": "Lobby rack",
+                "pages": ["enjoy/index"]
+              },
+              {
+                "group": "Flyers",
+                "pages": [
+                  "enjoy/local-first",
+                  "enjoy/your-graph",
+                  "enjoy/phone-to-desk",
+                  "enjoy/ollama-default",
+                  "enjoy/skills-markdown",
+                  "enjoy/safe-gate",
+                  "enjoy/open-the-bench"
+                ]
+              }
+            ]
           }
         ]
       }

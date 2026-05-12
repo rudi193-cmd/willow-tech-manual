@@ -31,6 +31,8 @@ This manual is the **long-form technical surface** for Willow: the local-first k
 
 **Glove-box path:** for the **Honda owner’s-book** shape (safety → operation → maintenance → troubleshooting → information → specifications), open **Owner's manual (Elite)**, starting at [that edition’s home](/owners-manual).
 
+**Lobby-rack path:** for **one-screen hooks** (hotel-flyer simplicity — big line, tiny truth, then the deep tabs), open **Enjoy**, starting at [Enjoy](/enjoy).
+
 ## Map of the trees (do not guess)
 
 | Line | Role | Typical path on disk |
