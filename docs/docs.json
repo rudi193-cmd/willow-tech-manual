@@ -116,6 +116,30 @@
                 ]
               }
             ]
+          },
+          {
+            "tab": "Owner's manual (Elite)",
+            "groups": [
+              {
+                "group": "Glove box",
+                "pages": ["owners-manual/index"]
+              },
+              {
+                "group": "Honda-pattern spine",
+                "pages": [
+                  "owners-manual/vehicle-safety",
+                  "owners-manual/operation-guide",
+                  "owners-manual/maintenance",
+                  "owners-manual/troubleshooting",
+                  "owners-manual/information",
+                  "owners-manual/specifications"
+                ]
+              },
+              {
+                "group": "Quick reference card",
+                "pages": ["owners-manual/quick-reference"]
+              }
+            ]
           }
         ]
       }

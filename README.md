@@ -36,6 +36,7 @@ npm run build     # static site → docs/export.zip (uses mintlify@4.2.559 for e
 | `docs/operator-runbooks/` | How to run and recover |
 | `docs/fleet-process/` | Agents, MCP, ingest, worktrees |
 | `docs/workshop/` | **Sticky spine** — 17 chapters + appendices (workshop manual) |
+| `docs/owners-manual/` | **Elite / Honda spine** — owner’s book + quick reference card |
 | `docs/reference/` | Glossary and tables |
 
 Canon for the narrative: **Willow 1.9** is current production (`willow-1.9`); **2.0** work lives in `willow-sandbox` on disk — the manual states that explicitly so readers are not sent to legacy trees.
