@@ -1,0 +1,14 @@
+{
+  "name": "willow-tech-manual",
+  "private": true,
+  "description": "Willow technical manual — Mintlify site (book-only repo)",
+  "scripts": {
+    "dev": "cd docs && mintlify dev",
+    "build": "cd docs && mintlify export",
+    "validate": "cd docs && mintlify validate",
+    "broken-links": "cd docs && mintlify broken-links"
+  },
+  "devDependencies": {
+    "mintlify": "^4.2.559"
+  }
+}

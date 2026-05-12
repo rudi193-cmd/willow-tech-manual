@@ -1,0 +1,66 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "name": "Willow Technical Manual",
+  "description": "Operator and builder documentation for the Willow local-first stack, fleet process, and the path to 2.0.",
+  "theme": "mint",
+  "icons": {
+    "library": "lucide"
+  },
+  "logo": {
+    "light": "/assets/willow-mark.svg",
+    "dark": "/assets/willow-mark.svg"
+  },
+  "favicon": "/assets/willow-mark.svg",
+  "colors": {
+    "primary": "#0D9488",
+    "dark": "#14B8A6",
+    "light": "#5EEAD4"
+  },
+  "styling": {
+    "codeblocks": {
+      "theme": {
+        "dark": "github-dark",
+        "light": "github-light"
+      }
+    }
+  },
+  "navbar": {
+    "links": [
+      {
+        "label": "Willow 1.9 (code)",
+        "href": "https://github.com/rudi193-cmd/willow-1.9",
+        "icon": "github"
+      }
+    ]
+  },
+  "navigation": {
+    "languages": [
+      {
+        "language": "en",
+        "tabs": [
+          {
+            "tab": "Manual",
+            "groups": [
+              {
+                "group": "Start here",
+                "pages": ["index", "introduction/index"]
+              },
+              {
+                "group": "Systems",
+                "pages": ["architecture/index", "operator-runbooks/index"]
+              },
+              {
+                "group": "Fleet & process",
+                "pages": ["fleet-process/index"]
+              },
+              {
+                "group": "Reference",
+                "pages": ["reference/glossary"]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
