@@ -1,7 +1,7 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "name": "Willow Technical Manual",
-  "description": "Operator and builder documentation for the Willow local-first stack, fleet process, and the path to 2.0.",
+  "description": "Three tiers, one stack. willow-workshop for builders. willow-elite for operators. willow-enjoy for visitors. ΔΣ=42",
   "theme": "mint",
   "icons": {
     "library": "lucide"
@@ -12,9 +12,9 @@
   },
   "favicon": "/assets/willow-mark.svg",
   "colors": {
-    "primary": "#0D9488",
-    "dark": "#14B8A6",
-    "light": "#5EEAD4"
+    "primary": "#1a1612",
+    "dark": "#3a342c",
+    "light": "#7a7064"
   },
   "styling": {
     "codeblocks": {
@@ -27,7 +27,12 @@
   "navbar": {
     "links": [
       {
-        "label": "Willow 1.9 (code)",
+        "label": "← library / index",
+        "href": "/",
+        "icon": "book-open"
+      },
+      {
+        "label": "willow-1.9 (code)",
         "href": "https://github.com/rudi193-cmd/willow-1.9",
         "icon": "github"
       }
@@ -39,32 +44,15 @@
         "language": "en",
         "tabs": [
           {
-            "tab": "Manual",
+            "tab": "willow-workshop",
             "groups": [
               {
-                "group": "Start here",
-                "pages": ["index", "introduction/index"]
-              },
-              {
-                "group": "Systems",
-                "pages": ["architecture/index", "operator-runbooks/index"]
-              },
-              {
-                "group": "Fleet & process",
-                "pages": ["fleet-process/index"]
-              },
-              {
-                "group": "Reference",
-                "pages": ["reference/glossary"]
-              }
-            ]
-          },
-          {
-            "tab": "Workshop (Sticky spine)",
-            "groups": [
-              {
-                "group": "About this edition",
-                "pages": ["workshop/index"]
+                "group": "The bench",
+                "pages": [
+                  "introduction/index",
+                  "architecture/index",
+                  "fleet-process/index"
+                ]
               },
               {
                 "group": "Foundation",
@@ -104,7 +92,9 @@
               },
               {
                 "group": "Special parts",
-                "pages": ["workshop/17-special-parts-slimstyles"]
+                "pages": [
+                  "workshop/17-special-parts-slimstyles"
+                ]
               },
               {
                 "group": "Appendices",
@@ -118,11 +108,14 @@
             ]
           },
           {
-            "tab": "Owner's manual (Elite)",
+            "tab": "willow-elite",
             "groups": [
               {
                 "group": "Glove box",
-                "pages": ["owners-manual/index"]
+                "pages": [
+                  "owners-manual/index",
+                  "owners-manual/quick-reference"
+                ]
               },
               {
                 "group": "Honda-pattern spine",
@@ -136,17 +129,21 @@
                 ]
               },
               {
-                "group": "Quick reference card",
-                "pages": ["owners-manual/quick-reference"]
+                "group": "Runbooks",
+                "pages": [
+                  "operator-runbooks/index"
+                ]
               }
             ]
           },
           {
-            "tab": "Enjoy",
+            "tab": "willow-enjoy",
             "groups": [
               {
                 "group": "Lobby rack",
-                "pages": ["enjoy/index"]
+                "pages": [
+                  "enjoy/index"
+                ]
               },
               {
                 "group": "Flyers",
@@ -158,6 +155,17 @@
                   "enjoy/skills-markdown",
                   "enjoy/safe-gate",
                   "enjoy/open-the-bench"
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "library",
+            "groups": [
+              {
+                "group": "Library",
+                "pages": [
+                  "reference/glossary"
                 ]
               }
             ]
