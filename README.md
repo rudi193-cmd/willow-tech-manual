@@ -8,11 +8,16 @@ Book-only repository: Markdown sources and a [Mintlify](https://mintlify.com) do
 
 ## Local preview
 
+From a directory **anywhere** on your machine (after you clone or unpack this repo):
+
 ```bash
-cd /home/sean-campbell/github/willow-tech-manual
+git clone https://github.com/rudi193-cmd/willow-tech-manual.git
+cd willow-tech-manual
 npm install
 npm run dev
 ```
+
+If you already have the repo, `cd` to its root (the folder that contains `package.json` and `docs/`) instead of cloning again.
 
 Mintlify runs inside `docs/` (where `docs.json` lives). It prints a local URL (often `http://localhost:3000`). Edit Markdown under `docs/`; the dev server hot-reloads.
 
