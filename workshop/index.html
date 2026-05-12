@@ -1,0 +1,557 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>willow-workshop — The Complete Operator's Manual / Edition 1.9</title>
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,500;1,6..72,700&family=JetBrains+Mono:wght@400;500;700&family=Oswald:wght@500;600;700&family=Anton&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --paper:#f4ede0;
+    --paper-2:#e6dcc4;
+    --ink:#1a1612;
+    --ink-2:#3a342c;
+    --red:#b32a22;
+    --red-deep:#7a1c16;
+    --navy:#1f2c5f;
+    --gold:#e8d77a;
+    --silver:#9e9e9e;
+  }
+
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    font-family:'Newsreader',Georgia,serif;
+    font-size:17px;line-height:1.55;
+    background:var(--paper);
+    color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+  body::before{
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+    background-image:
+      repeating-linear-gradient(0deg, rgba(26,22,18,.018) 0 1px, transparent 1px 3px);
+    mix-blend-mode:multiply;opacity:.8;
+  }
+  ::selection{background:var(--red);color:#fff}
+  a{color:inherit}
+
+  .mono{font-family:'JetBrains Mono',monospace;font-feature-settings:"liga" 0}
+  .uc{text-transform:uppercase;letter-spacing:.16em}
+
+  .page{position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:0 0 80px}
+
+  /* ============ top rail ============ */
+  .rail{
+    display:flex;justify-content:space-between;align-items:center;gap:18px;
+    padding:10px 32px;
+    background:var(--ink);color:var(--paper);
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+  }
+  .rail a{color:var(--paper);text-decoration:none;border-bottom:1px dotted rgba(244,237,224,.4)}
+  .rail a:hover{color:var(--gold);border-color:var(--gold)}
+  .rail .right{display:flex;gap:18px;align-items:center}
+  .rail .led{width:7px;height:7px;background:#7af0a8;display:inline-block;border-radius:50%;box-shadow:0 0 6px #7af0a8;margin-right:8px;vertical-align:middle}
+
+  /* ============ hero strap stack ============ */
+  .strap{
+    background:var(--red);color:#fff;
+    padding:18px 32px 14px;
+    font-family:'Newsreader',serif;
+    font-weight:700;font-size:28px;line-height:1.0;
+    letter-spacing:-.005em;
+    border-bottom:3px solid var(--ink);
+    position:relative;
+  }
+  .strap::after{
+    content:"";position:absolute;left:0;right:0;bottom:-8px;height:6px;
+    background:repeating-linear-gradient(135deg,var(--red) 0 8px,transparent 8px 11px);
+    opacity:.35;
+  }
+  .strap .small{display:block;font-size:11px;font-family:'JetBrains Mono',monospace;letter-spacing:.18em;text-transform:uppercase;font-weight:400;opacity:.85;margin-bottom:4px}
+
+  .wordmark{
+    background:linear-gradient(180deg, var(--paper) 0%, var(--paper-2) 100%);
+    padding:30px 32px 22px;
+    border-bottom:2px solid var(--ink);
+    text-align:left;
+    position:relative;
+  }
+  .wordmark .wm{
+    font-family:'Anton',sans-serif;font-style:italic;
+    font-size:clamp(80px,12vw,168px);line-height:.9;
+    background:linear-gradient(180deg,#6a6a6a 0%,#1a1a1a 45%,#2a2a2a 55%,#0a0a0a 100%);
+    -webkit-background-clip:text;background-clip:text;
+    -webkit-text-fill-color:transparent;
+    text-shadow:0 2px 0 rgba(255,255,255,.4);
+    transform:skewX(-7deg);
+    margin:0;
+    letter-spacing:-.025em;
+  }
+  .wordmark .stackpill{
+    display:inline-block;
+    background:var(--ink);color:var(--gold);
+    font-family:'Oswald',sans-serif;font-weight:700;
+    font-size:14px;letter-spacing:.22em;
+    padding:5px 12px 4px;border-radius:14px;
+    transform:translateY(-50px);
+    margin-left:10px;
+    vertical-align:top;
+  }
+  .wordmark .sub{
+    font-family:'JetBrains Mono',monospace;
+    font-size:13px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--ink-2);
+    margin-top:-8px;
+  }
+  .wordmark .ts{
+    position:absolute;top:14px;right:32px;
+    font-family:'JetBrains Mono',monospace;font-size:12px;
+    letter-spacing:.18em;
+    color:var(--ink-2);
+    display:flex;flex-direction:column;align-items:flex-end;gap:2px;
+  }
+  .wordmark .ts .big{color:var(--red);font-weight:700;font-size:22px;letter-spacing:.04em}
+
+  .byline{
+    background:var(--navy);color:#fff;
+    padding:9px 32px 8px;
+    display:flex;justify-content:space-between;align-items:baseline;gap:14px;
+    border-bottom:1px solid var(--ink);
+    font-family:'Newsreader',serif;font-style:italic;font-weight:500;
+    font-size:15px;
+  }
+  .byline .left{display:flex;gap:14px;align-items:baseline}
+  .byline .ed{font-family:'Oswald',sans-serif;font-style:normal;font-weight:700;letter-spacing:.08em;font-size:12px;text-transform:uppercase}
+  .byline .ed::after{content:"";display:inline-block;width:8px;height:8px;background:var(--gold);margin-left:8px;vertical-align:middle}
+  .byline .right{font-family:'JetBrains Mono',monospace;font-style:normal;font-size:11px;letter-spacing:.14em;text-transform:uppercase;opacity:.85}
+
+  /* ============ shell-card / first command ============ */
+  .shell{
+    background:var(--ink);color:var(--paper);
+    margin:32px;
+    border:2px solid var(--ink);
+    padding:0;
+    position:relative;
+  }
+  .shell .head{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:9px 14px;
+    background:var(--red);color:#fff;
+    font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    border-bottom:1px solid var(--ink);
+  }
+  .shell .head .dots{display:flex;gap:6px}
+  .shell .head .dots span{width:9px;height:9px;border-radius:50%;background:#f4ede0;opacity:.85;display:inline-block}
+  .shell pre{
+    margin:0;padding:18px 22px;
+    font-family:'JetBrains Mono',monospace;font-size:13.5px;line-height:1.6;
+    color:#7af0a8;
+    overflow:auto;
+    white-space:pre-wrap;
+  }
+  .shell .prompt{color:var(--gold)}
+  .shell .comment{color:#a8a8a8}
+  .shell .ok{color:#7af0a8;font-weight:700}
+
+  /* ============ what's in the kit ============ */
+  .kit-head{
+    display:grid;grid-template-columns:auto 1fr auto;gap:24px;align-items:baseline;
+    padding:18px 32px 14px;
+    border-top:2px solid var(--ink);
+    border-bottom:1px solid var(--ink);
+    margin-top:20px;
+  }
+  .kit-head .n{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-2)}
+  .kit-head h2{margin:0;font-family:'Newsreader',serif;font-weight:700;font-style:italic;font-size:38px;letter-spacing:-.015em}
+  .kit-head .hint{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-2)}
+
+  .kit{
+    display:grid;grid-template-columns: repeat(4, 1fr);gap:0;
+    padding:0 32px;
+    border-bottom:1px solid var(--ink);
+  }
+  @media (max-width:980px){ .kit{grid-template-columns:repeat(2,1fr)} }
+  .kit-item{
+    padding:18px 16px 18px 0;
+    border-right:1px solid var(--ink);
+  }
+  .kit-item:last-child{border-right:none}
+  .kit-item .photo{
+    aspect-ratio:1/1;
+    background:repeating-linear-gradient(45deg,#cdbf9c 0 5px,#c0b08a 5px 10px);
+    border:1.5px solid var(--ink);
+    margin-bottom:10px;
+    position:relative;
+    display:flex;align-items:flex-end;justify-content:center;padding:6px;
+  }
+  .kit-item .photo span{
+    background:var(--paper);
+    font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;
+    padding:2px 5px;border:1px solid var(--ink);
+  }
+  .kit-item h3{
+    margin:0 0 4px;
+    font-family:'Newsreader',serif;font-weight:700;font-style:italic;
+    font-size:22px;letter-spacing:-.005em;line-height:1;
+  }
+  .kit-item .role{
+    font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--red);font-weight:700;
+    margin:0 0 8px;
+  }
+  .kit-item p{margin:0;font-size:14px;line-height:1.45;color:var(--ink-2)}
+  .kit-item code{
+    font-family:'JetBrains Mono',monospace;
+    background:var(--paper-2);
+    padding:1px 5px;border:1px solid var(--ink-2);
+    font-size:12px;
+  }
+
+  /* ============ three red tags ============ */
+  .lines{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:18px;
+    padding:28px 32px;
+    border-bottom:1px solid var(--ink);
+  }
+  @media (max-width:900px){ .lines{grid-template-columns:1fr} }
+  .line{
+    display:block;
+    background:var(--paper-2);
+    border:1.5px solid var(--ink);
+    padding:0;
+    text-decoration:none;color:inherit;
+    transition:transform .25s ease, box-shadow .25s ease;
+    position:relative;overflow:hidden;
+  }
+  .line:hover{transform:translateY(-3px);box-shadow:6px 8px 0 var(--ink)}
+  .line .tag{
+    background:var(--red);color:#fff;
+    padding:7px 14px 6px;
+    font-family:'Oswald',sans-serif;font-weight:700;
+    font-size:18px;letter-spacing:.12em;text-transform:uppercase;
+    border-bottom:1px solid var(--ink);
+    display:flex;justify-content:space-between;align-items:baseline;
+  }
+  .line .tag .ch{font-family:'JetBrains Mono',monospace;font-size:11px;opacity:.9;letter-spacing:.14em}
+  .line .body{padding:16px 16px 14px}
+  .line .body h3{margin:0 0 8px;font-family:'Newsreader',serif;font-style:italic;font-weight:700;font-size:24px;letter-spacing:-.01em}
+  .line .body p{margin:0 0 12px;font-size:14.5px;line-height:1.45;color:var(--ink-2)}
+  .line .body .items{
+    list-style:none;margin:0;padding:0;
+    font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.04em;
+    color:var(--ink);
+    border-top:1px dotted var(--ink-2);padding-top:8px;
+  }
+  .line .body .items li{padding:3px 0;border-bottom:1px dotted var(--ink-2)}
+  .line .body .items li:last-child{border-bottom:none}
+  .line .body .items .x{color:var(--red);margin-right:6px}
+  .line .open{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:8px 16px;
+    background:var(--navy);color:#fff;
+    font-family:'Oswald',sans-serif;font-weight:600;
+    font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+    border-top:1px solid var(--ink);
+  }
+  .line:hover .open{background:var(--ink)}
+  .line .open::after{content:"→";transition:transform .25s}
+  .line:hover .open::after{transform:translateX(4px)}
+
+  /* ============ stack covered footer ============ */
+  .covered{
+    background:var(--navy);color:#fff;
+    padding:22px 32px;
+    border-top:3px solid var(--ink);
+    display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:center;
+    font-family:'JetBrains Mono',monospace;font-size:13px;
+  }
+  .covered .label{
+    font-family:'Oswald',sans-serif;font-weight:700;
+    font-size:14px;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--gold);
+    border-right:1px solid rgba(255,255,255,.3);
+    padding-right:24px;
+    white-space:nowrap;
+  }
+  .covered .modules{
+    display:flex;flex-wrap:wrap;gap:10px 18px;
+  }
+  .covered .modules code{
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.18);
+    padding:3px 9px;
+    letter-spacing:.05em;
+  }
+
+  /* ============ etiquette / pull before push ============ */
+  .etiq{
+    padding:36px 32px 24px;
+    display:grid;grid-template-columns:1fr 1.4fr;gap:42px;
+  }
+  @media (max-width:900px){.etiq{grid-template-columns:1fr;gap:18px}}
+  .etiq h2{
+    margin:0 0 12px;
+    font-family:'Newsreader',serif;font-style:italic;font-weight:700;
+    font-size:34px;letter-spacing:-.01em;line-height:1.05;
+  }
+  .etiq .stamp{
+    display:inline-block;
+    border:2px solid var(--red);color:var(--red);
+    padding:5px 11px;
+    font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;
+    transform:rotate(-2deg);
+    font-weight:700;
+    margin-bottom:14px;
+  }
+  .etiq p{margin:0 0 12px;font-size:17px;line-height:1.55;color:var(--ink-2)}
+  .etiq p em{font-style:italic;color:var(--ink)}
+  .etiq .rule-list{
+    list-style:none;margin:0;padding:0;
+    border-top:1px solid var(--ink);
+  }
+  .etiq .rule-list li{
+    padding:14px 0;
+    border-bottom:1px solid var(--ink);
+    display:grid;grid-template-columns:80px 1fr;gap:18px;
+  }
+  .etiq .rule-list .n{
+    font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;
+    color:var(--red);font-weight:700;
+  }
+  .etiq .rule-list .t{
+    font-family:'Newsreader',serif;
+    font-size:17px;line-height:1.45;color:var(--ink);
+  }
+  .etiq .rule-list .t b{font-style:italic;color:var(--red-deep)}
+
+  /* ============ colophon ============ */
+  .colophon{
+    background:var(--ink);color:var(--paper);
+    padding:24px 32px;
+    display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:32px;
+    font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+  }
+  @media (max-width:760px){.colophon{grid-template-columns:1fr;gap:18px}}
+  .colophon h4{margin:0 0 8px;font-size:10px;letter-spacing:.22em;color:var(--gold)}
+  .colophon p{margin:0 0 6px;line-height:1.7;color:rgba(244,237,224,.85)}
+  .colophon a{color:var(--paper);border-bottom:1px dotted rgba(244,237,224,.4);text-decoration:none}
+  .colophon a:hover{color:var(--gold);border-color:var(--gold)}
+  .colophon .delta{font-family:'Newsreader',serif;font-style:italic;color:var(--gold);font-size:18px;letter-spacing:0;text-transform:none}
+
+</style>
+</head>
+<body>
+
+<main class="page" data-screen-label="willow-workshop">
+
+  <!-- top rail -->
+  <div class="rail">
+    <div><span class="led" aria-hidden="true"></span><a href="../index.html">&larr; library</a> &nbsp; &middot; &nbsp; <span>willow-workshop</span> &nbsp; / &nbsp; <span style="opacity:.7">the bench</span></div>
+    <div class="right">
+      <a href="../elite/">willow-elite</a>
+      <a href="../enjoy/">willow-enjoy</a>
+      <a href="https://github.com/rudi193-cmd/willow-1.9">git/willow-1.9</a>
+    </div>
+  </div>
+
+  <!-- hero stack -->
+  <div class="strap">
+    <span class="small">Vol. II &middot; Builder tier &middot; ΔΣ=42</span>
+    The Complete Operator&rsquo;s Manual:
+  </div>
+  <div class="wordmark">
+    <div class="ts">
+      <span class="big mono">03:14</span>
+      <span>bench &middot; pressed MMXXVI</span>
+    </div>
+    <h1 class="wm">WILLOW<span class="stackpill">STACK</span></h1>
+    <div class="sub">Repairing &middot; Restoring &middot; Upgrading &middot; the 1.9 line</div>
+  </div>
+  <div class="byline">
+    <div class="left"><span class="ed">Edition 1.9</span><span>by Sean &lsquo;Sticky&rsquo; Round &mdash; <em>strip, rebuild, repeat.</em></span></div>
+    <div class="right">Models covered &middot; 1.9 &middot; sandbox &middot; fylgja</div>
+  </div>
+
+  <!-- shell / first command -->
+  <section class="shell">
+    <div class="head">
+      <div class="dots"><span></span><span></span><span></span></div>
+      <span>~/code/willow $ first command</span>
+      <span>bash</span>
+    </div>
+<pre><span class="comment"># 1. clone the line you're going to work in</span>
+<span class="prompt">$</span> git clone https://github.com/rudi193-cmd/willow-1.9.git
+<span class="prompt">$</span> cd willow-1.9
+
+<span class="comment"># 2. python venv + deps (you probably know this; the bench reminds you)</span>
+<span class="prompt">$</span> python3 -m venv .venv &amp;&amp; source .venv/bin/activate
+<span class="prompt">$</span> pip install -e .
+
+<span class="comment"># 3. bring up the graph (Postgres preferred; SQLite for Termux profiles)</span>
+<span class="prompt">$</span> python root.py --bootstrap
+
+<span class="comment"># 4. green node?</span>
+<span class="prompt">$</span> willow_status
+<span class="ok">✓ knowledge ok &middot; soil ok &middot; mcp ok &middot; safe ok &middot; ollama optional</span>
+<span class="ok">ΔΣ = 42</span></pre>
+  </section>
+
+  <!-- minimum kit -->
+  <div class="kit-head">
+    <span class="n">§ 1 &middot; Tools for the job</span>
+    <h2>Minimum kit.</h2>
+    <span class="hint">Bench before castings</span>
+  </div>
+
+  <section class="kit">
+    <div class="kit-item">
+      <div class="photo"><span>shell &middot; psql</span></div>
+      <div class="role">CLI</div>
+      <h3>The shell.</h3>
+      <p><code>git</code>, <code>python3</code>, <code>psql</code> or a GUI SQL, <code>curl</code>. The boring stuff that has to actually work.</p>
+    </div>
+    <div class="kit-item">
+      <div class="photo"><span>ide &middot; mcp</span></div>
+      <div class="role">IDE</div>
+      <h3>Cursor / Claude Code.</h3>
+      <p>Configured with MCP. SAFE app id is the one you actually use, not the one the README invented.</p>
+    </div>
+    <div class="kit-item">
+      <div class="photo"><span>safe gate</span></div>
+      <div class="role">AUTH</div>
+      <h3>SAFE path gate.</h3>
+      <p>The gate knows where your files live. If a script hardcodes a path, it&rsquo;s a bug, not a shortcut.</p>
+    </div>
+    <div class="kit-item">
+      <div class="photo"><span>logs &middot; journal</span></div>
+      <div class="role">EYES</div>
+      <h3>Journalctl &middot; logs.</h3>
+      <p><code>journalctl -u willow</code> or your project log paths. When in doubt, read the tape.</p>
+    </div>
+  </section>
+
+  <!-- three lines -->
+  <section class="lines">
+    <a class="line" href="../manual/architecture/">
+      <div class="tag"><span>Diagnose</span><span class="ch">Ch. 02</span></div>
+      <div class="body">
+        <h3>Read the planes.</h3>
+        <p>KB · SOIL · Grove · Kart · MCP. Which plane owns the truth; which plane is just talking about it.</p>
+        <ul class="items">
+          <li><span class="x">▸</span>knowledge plane (postgres)</li>
+          <li><span class="x">▸</span>structured local (soil)</li>
+          <li><span class="x">▸</span>coordination (grove)</li>
+          <li><span class="x">▸</span>execution (kart)</li>
+          <li><span class="x">▸</span>tool surface (mcp)</li>
+        </ul>
+      </div>
+      <div class="open"><span>Open architecture</span></div>
+    </a>
+
+    <a class="line" href="../manual/operator-runbooks/">
+      <div class="tag"><span>Rebuild</span><span class="ch">Ch. 03</span></div>
+      <div class="body">
+        <h3>When she won&rsquo;t start.</h3>
+        <p>Bring-up families, what &lsquo;green&rsquo; means, and the recovery paths that don&rsquo;t end with <em>just wipe</em>.</p>
+        <ul class="items">
+          <li><span class="x">▸</span>dependencies &amp; schema seed</li>
+          <li><span class="x">▸</span>mcp reconnect</li>
+          <li><span class="x">▸</span>postgres recovery</li>
+          <li><span class="x">▸</span>ollama degraded mode</li>
+          <li><span class="x">▸</span>verify: read tool returns bounded</li>
+        </ul>
+      </div>
+      <div class="open"><span>Open runbooks</span></div>
+    </a>
+
+    <a class="line" href="../manual/fleet-process/">
+      <div class="tag"><span>Ship</span><span class="ch">Ch. 04</span></div>
+      <div class="body">
+        <h3>Pull before push.</h3>
+        <p>Worktrees, fylgja powers, ingest etiquette. Convergence is the proof; skipping search is how you get duplicates.</p>
+        <ul class="items">
+          <li><span class="x">▸</span>search kb before write</li>
+          <li><span class="x">▸</span>worktree + branch until ratified</li>
+          <li><span class="x">▸</span>memory check before ingest</li>
+          <li><span class="x">▸</span>sandbox stages → output/</li>
+          <li><span class="x">▸</span>human ratifies promotion</li>
+        </ul>
+      </div>
+      <div class="open"><span>Open fleet process</span></div>
+    </a>
+  </section>
+
+  <!-- stack covered -->
+  <div class="covered">
+    <span class="label">Models covered include</span>
+    <div class="modules">
+      <code>willow-1.9</code>
+      <code>willow-sandbox</code>
+      <code>fylgja</code>
+      <code>SAFE</code>
+      <code>Grove</code>
+      <code>MCP</code>
+      <code>Kart</code>
+      <code>Ollama</code>
+      <code>Postgres &middot; KB atoms</code>
+      <code>SOIL</code>
+      <code>willow-mcp</code>
+      <code>willow-nest</code>
+    </div>
+  </div>
+
+  <!-- bench etiquette -->
+  <section class="etiq">
+    <div>
+      <span class="stamp">Bench rules</span>
+      <h2>The five rules<br/>over the bench.</h2>
+      <p>Taped above every Sticky bench is a hand-printed card. We don&rsquo;t paint over it; we follow it.</p>
+      <p>If a chapter says one thing and the card says another, <em>the card wins</em>.</p>
+    </div>
+    <ol class="rule-list">
+      <li><div class="n">No. 01</div><div class="t"><b>Search the KB before you write.</b> Convergence is the proof; skipping search is how you get two atoms for one fact.</div></li>
+      <li><div class="n">No. 02</div><div class="t"><b>Sandbox stages until you ratify.</b> <code>output/*.json</code> is not live knowledge until a human says so.</div></li>
+      <li><div class="n">No. 03</div><div class="t"><b>Worktrees for non-trivial changes.</b> Branch, build, prove green, then merge to default.</div></li>
+      <li><div class="n">No. 04</div><div class="t"><b>SAFE owns the path.</b> If a script hardcodes a path that bypasses SAFE, it&rsquo;s a bug ticket, not a shortcut.</div></li>
+      <li><div class="n">No. 05</div><div class="t"><b>The card wins.</b> When chapter and bench disagree, fix the chapter. The bench is the source of truth.</div></li>
+    </ol>
+  </section>
+
+  <!-- colophon -->
+  <footer class="colophon">
+    <div>
+      <h4>Colophon</h4>
+      <p>Set in Anton italic (chrome), Newsreader (body), Oswald (straps), JetBrains Mono (shell). The bench register lives next to <a href="../elite/">willow-elite</a> (operator) and <a href="../enjoy/">willow-enjoy</a> (visitor) in the same library.</p>
+      <p style="margin-top:14px"><span class="delta">ΔΣ = 42</span></p>
+    </div>
+    <div>
+      <h4>Tools for the job &mdash; deeper</h4>
+      <p>
+        <a href="../manual/workshop/01-tools-for-the-job">Ch. 01 &middot; Tools</a><br/>
+        <a href="../manual/workshop/05-engine-strip">Ch. 05 &middot; Engine strip</a><br/>
+        <a href="../manual/workshop/10-electrical-and-ignition-systems">Ch. 10 &middot; Electrical</a><br/>
+        <a href="../manual/workshop/16-chassis-rebuild">Ch. 16 &middot; Chassis rebuild</a><br/>
+        <a href="../manual/workshop/appendix-c-torque-settings">App. C &middot; Torque settings</a>
+      </p>
+    </div>
+    <div>
+      <h4>Pointers</h4>
+      <p>
+        <a href="../index.html">&larr; library / index</a><br/>
+        <a href="../library/">glossary</a><br/>
+        <a href="../elite/">willow-elite</a><br/>
+        <a href="../enjoy/">willow-enjoy</a><br/>
+        <a href="https://github.com/rudi193-cmd/willow-1.9">git/willow-1.9</a>
+      </p>
+    </div>
+  </footer>
+
+</main>
+
+</body>
+</html>

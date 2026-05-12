@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>willow-enjoy — you're just looking, that's fine</title>
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,500;0,6..72,700;1,6..72,500;1,6..72,700&family=JetBrains+Mono:wght@400;500;700&family=Oswald:ital,wght@0,500;0,600;0,700;1,600&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --green:#2d4836;
+    --green-deep:#1a2e22;
+    --green-light:#3f6049;
+    --orange:#d8691f;
+    --orange-light:#e88a3b;
+    --cream:#f3ecd8;
+    --cream-2:#e9dfb8;
+    --ink:#1a1612;
+  }
+
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    font-family:'Newsreader',Georgia,serif;
+    font-size:18px;line-height:1.5;
+    background:var(--green);
+    color:var(--cream);
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+    overflow-x:hidden;
+  }
+  ::selection{background:var(--orange);color:#fff}
+  a{color:inherit;text-decoration:none}
+
+  .mono{font-family:'JetBrains Mono',monospace}
+  .script{font-family:'Caveat',cursive;font-weight:600}
+
+  .page{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:0 0 60px}
+
+  /* ====== rail ====== */
+  .rail{
+    display:flex;justify-content:space-between;align-items:center;gap:18px;
+    padding:14px 32px;
+    border-bottom:1px solid rgba(243,236,216,.2);
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:rgba(243,236,216,.7);
+  }
+  .rail a{color:var(--cream);border-bottom:1px dotted rgba(243,236,216,.4)}
+  .rail a:hover{color:var(--orange-light);border-color:var(--orange-light)}
+  .rail .right{display:flex;gap:18px}
+
+  /* ====== hero ====== */
+  .hero{
+    padding:48px 32px 30px;
+    display:grid;grid-template-columns:1.05fr 1fr;gap:48px;align-items:center;
+    position:relative;
+  }
+  @media (max-width:900px){.hero{grid-template-columns:1fr;gap:24px}}
+  .hero .script-hi{
+    font-family:'Caveat',cursive;font-weight:600;
+    font-size:42px;line-height:1.0;color:var(--cream);
+    margin:0 0 10px;
+  }
+  .hero .script-hi em{font-style:italic;color:var(--orange-light)}
+  .hero h1{
+    margin:8px 0 14px;
+    font-family:'Newsreader',serif;font-style:italic;font-weight:700;
+    font-size:clamp(58px,8vw,108px);line-height:.92;
+    letter-spacing:-.02em;
+    color:var(--cream);
+  }
+  .hero h1 .o{color:var(--orange);font-style:italic}
+  .hero .tag{
+    margin:14px 0 28px;
+    font-family:'Oswald',sans-serif;font-style:italic;font-weight:500;
+    font-size:20px;letter-spacing:.005em;
+    color:var(--cream);
+    max-width:48ch;
+    opacity:.9;
+  }
+  .hero .tag b{color:var(--orange-light);font-weight:500;font-style:normal;font-family:'JetBrains Mono',monospace;letter-spacing:.04em;font-size:15px}
+
+  .photo{
+    aspect-ratio:4/5;
+    background:
+      repeating-linear-gradient(135deg, #6a8270 0 10px, #5b6e62 10px 20px);
+    border:1px solid var(--green-deep);
+    position:relative;
+    overflow:hidden;
+  }
+  .photo .cap{
+    position:absolute;bottom:14px;left:14px;right:14px;
+    display:flex;justify-content:space-between;gap:14px;
+    font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+  }
+  .photo .cap span{background:rgba(45,72,54,.85);padding:4px 8px;border:1px solid var(--cream)}
+  .photo .torn-r{
+    position:absolute;top:0;right:-1px;bottom:0;width:36px;
+    background:var(--orange);
+    clip-path: polygon(40% 0, 70% 3%, 50% 8%, 80% 14%, 55% 22%, 75% 30%, 50% 38%, 80% 46%, 55% 54%, 75% 62%, 50% 70%, 80% 78%, 55% 86%, 70% 94%, 45% 100%, 100% 100%, 100% 0);
+  }
+  .photo .stamp{
+    position:absolute;top:14px;left:14px;
+    background:var(--cream);color:var(--green-deep);
+    padding:5px 9px;
+    font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;
+    transform:rotate(-3deg);
+  }
+
+  /* ====== two choices ====== */
+  .choices{
+    padding:0 32px 60px;
+    position:relative;
+  }
+  .torn-edge{
+    height:32px;margin:0 -2px 26px;
+    background:var(--orange);
+    clip-path: polygon(
+      0% 60%, 4% 25%, 9% 70%, 14% 20%, 19% 65%, 24% 25%, 29% 70%, 35% 20%, 41% 65%, 47% 30%, 53% 70%, 59% 25%, 65% 65%, 71% 30%, 77% 70%, 83% 25%, 89% 70%, 94% 30%, 100% 60%,
+      100% 0%, 0% 0%
+    );
+  }
+  .choices-inner{
+    display:grid;grid-template-columns:1fr 1fr;gap:24px;
+    background:var(--cream);
+    padding:36px 36px 30px;
+    position:relative;
+    color:var(--green-deep);
+  }
+  @media (max-width:760px){.choices-inner{grid-template-columns:1fr}}
+  .choices-inner::before{
+    content:"";position:absolute;top:-1px;left:0;right:0;height:8px;
+    background:repeating-linear-gradient(90deg, var(--cream) 0 8px, var(--cream-2) 8px 14px);
+  }
+  .choices .lead{
+    grid-column:1/-1;
+    font-family:'Newsreader',serif;font-style:italic;font-weight:500;
+    font-size:22px;line-height:1.4;
+    color:var(--green-deep);
+    margin:0 0 8px;
+    max-width:60ch;
+  }
+  .choice{
+    display:block;
+    border:2px solid var(--green-deep);
+    padding:24px 22px 22px;
+    color:var(--green-deep);
+    background:var(--cream);
+    text-decoration:none;
+    position:relative;
+    transition:transform .25s ease, box-shadow .25s ease, background .25s ease;
+  }
+  .choice:hover{transform:translateY(-3px);box-shadow:6px 8px 0 var(--green-deep)}
+  .choice.bench{background:var(--green-deep);color:var(--cream);border-color:var(--green-deep)}
+  .choice.bench:hover{box-shadow:6px 8px 0 var(--orange)}
+  .choice .pre{
+    font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;
+    margin-bottom:10px;display:block;
+    color:var(--green-light);
+  }
+  .choice.bench .pre{color:var(--orange-light)}
+  .choice h2{
+    margin:0 0 12px;
+    font-family:'Newsreader',serif;font-style:italic;font-weight:700;
+    font-size:36px;line-height:1.05;letter-spacing:-.01em;
+  }
+  .choice p{margin:0 0 18px;font-size:16px;line-height:1.5;max-width:32ch}
+  .choice .go{
+    font-family:'Oswald',sans-serif;font-weight:600;
+    font-size:13px;letter-spacing:.16em;text-transform:uppercase;
+    display:inline-block;
+    border-bottom:2px solid currentColor;padding-bottom:2px;
+  }
+  .choice .go::after{content:" →";transition:transform .25s;display:inline-block}
+  .choice:hover .go::after{transform:translateX(4px)}
+
+  /* ====== flyer rack ====== */
+  .rack-head{
+    display:grid;grid-template-columns:auto 1fr auto;gap:18px;align-items:baseline;
+    padding:36px 32px 14px;
+    border-top:1px solid rgba(243,236,216,.18);
+  }
+  .rack-head .n{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:rgba(243,236,216,.6)}
+  .rack-head h2{margin:0;font-family:'Newsreader',serif;font-style:italic;font-weight:700;font-size:34px;letter-spacing:-.01em;color:var(--cream)}
+  .rack-head .hint{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:rgba(243,236,216,.6)}
+
+  .rack{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:14px;
+    padding:0 32px;
+  }
+  @media (max-width:900px){.rack{grid-template-columns:repeat(2,1fr)}}
+  @media (max-width:520px){.rack{grid-template-columns:1fr}}
+  .flyer{
+    aspect-ratio:5/7;
+    background:var(--cream);
+    color:var(--green-deep);
+    border:1px solid var(--cream);
+    padding:18px 16px;
+    text-decoration:none;
+    display:flex;flex-direction:column;
+    position:relative;
+    transition:transform .25s ease, box-shadow .25s ease;
+  }
+  .flyer:hover{transform:translateY(-4px) rotate(-.4deg);box-shadow:5px 6px 0 var(--orange)}
+  .flyer .pre{
+    font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--green-light);margin-bottom:8px;
+  }
+  .flyer h3{
+    margin:0 0 8px;font-family:'Newsreader',serif;font-style:italic;font-weight:700;
+    font-size:24px;line-height:1.0;letter-spacing:-.01em;color:var(--green-deep);
+  }
+  .flyer p{
+    margin:auto 0 0;font-size:13.5px;line-height:1.4;color:var(--green-deep);
+    border-top:1px dashed var(--green-light);
+    padding-top:10px;
+  }
+  .flyer .o{position:absolute;top:14px;right:14px;width:10px;height:10px;background:var(--orange);border-radius:50%}
+
+  /* ====== quote / closer ====== */
+  .closer{
+    padding:48px 32px 24px;
+    text-align:center;
+    border-top:1px dashed rgba(243,236,216,.25);
+    margin-top:42px;
+  }
+  .closer .pull{
+    font-family:'Newsreader',serif;font-style:italic;font-weight:500;
+    font-size:clamp(28px,4vw,42px);line-height:1.15;
+    color:var(--cream);
+    max-width:24ch;margin:0 auto 18px;
+  }
+  .closer .pull em{color:var(--orange-light);font-style:italic}
+  .closer .by{
+    font-family:'Caveat',cursive;font-weight:600;font-size:22px;
+    color:var(--orange-light);
+  }
+
+  /* ====== colophon ====== */
+  .colophon{
+    margin-top:32px;
+    padding:18px 32px 0;
+    border-top:1px solid rgba(243,236,216,.18);
+    display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:32px;
+    font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+    color:rgba(243,236,216,.7);
+  }
+  @media (max-width:760px){.colophon{grid-template-columns:1fr;gap:18px}}
+  .colophon h4{margin:0 0 8px;font-size:10px;letter-spacing:.22em;color:var(--cream)}
+  .colophon p{margin:0 0 6px;line-height:1.7}
+  .colophon a{color:var(--cream);border-bottom:1px dotted rgba(243,236,216,.4)}
+  .colophon a:hover{color:var(--orange-light);border-color:var(--orange-light)}
+  .colophon .delta{font-family:'Newsreader',serif;font-style:italic;color:var(--orange-light);font-size:18px;letter-spacing:0;text-transform:none}
+
+</style>
+</head>
+<body>
+
+<main class="page" data-screen-label="willow-enjoy">
+
+  <div class="rail">
+    <div><a href="../index.html">&larr; library</a> &nbsp;&middot;&nbsp; willow-enjoy &nbsp;/&nbsp; <span style="opacity:.7">the lobby</span></div>
+    <div class="right">
+      <a href="../workshop/">willow-workshop</a>
+      <a href="../elite/">willow-elite</a>
+      <a href="https://github.com/rudi193-cmd/willow-1.9">git</a>
+    </div>
+  </div>
+
+  <!-- hero: one photo, one sentence -->
+  <section class="hero">
+    <div>
+      <p class="script-hi">Welcome, <em>traveler</em>.</p>
+      <h1>The library<br/>is <span class="o">always</span><br/>on fire.</h1>
+      <p class="tag">That&rsquo;s why we wrote it down. <b>local-first</b> · <b>no ports</b> · <b>yours to keep</b> · <b>ΔΣ=42</b></p>
+    </div>
+
+    <div class="photo" aria-hidden="true">
+      <div class="stamp">view from the ridge</div>
+      <div class="torn-r"></div>
+      <div class="cap">
+        <span>10°34&prime;N · 76°57&prime;E</span>
+        <span>willow / enjoy / 01</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- choices -->
+  <section class="choices">
+    <div class="torn-edge"></div>
+    <div class="choices-inner">
+      <p class="lead">Two doors. One opens onto a bench under fluorescent light at 3am. The other is the way you came in — no commitment, the front desk says hello on your way out.</p>
+
+      <a class="choice bench" href="../workshop/">
+        <span class="pre">If you brought tools →</span>
+        <h2>Show me<br/>the bench.</h2>
+        <p>Strip, rebuild, repeat. Sticky&rsquo;s spine. Torque specs included.</p>
+        <span class="go">Open willow-workshop</span>
+      </a>
+
+      <a class="choice" href="#flyers">
+        <span class="pre">Still deciding →</span>
+        <h2>I&rsquo;m just<br/>looking.</h2>
+        <p>That&rsquo;s fine. Pick a flyer from the rack below. No fine print. Front desk won&rsquo;t chase you.</p>
+        <span class="go">Browse the rack</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- flyer rack -->
+  <div class="rack-head" id="flyers">
+    <span class="n">§ The rack</span>
+    <h2>One hook per flyer.</h2>
+    <span class="hint">Hotel-lobby rules</span>
+  </div>
+
+  <section class="rack">
+    <a class="flyer" href="../manual/enjoy/local-first">
+      <span class="o"></span>
+      <span class="pre">flyer · 01</span>
+      <h3>Local-first.</h3>
+      <p>Your graph. Your house. Not their dashboard.</p>
+    </a>
+    <a class="flyer" href="../manual/enjoy/your-graph">
+      <span class="o"></span>
+      <span class="pre">flyer · 02</span>
+      <h3>Your graph.</h3>
+      <p>Postgres atoms today. SQLite on the phone. Same idea.</p>
+    </a>
+    <a class="flyer" href="../manual/enjoy/phone-to-desk">
+      <span class="o"></span>
+      <span class="pre">flyer · 03</span>
+      <h3>Phone → desk.</h3>
+      <p>One second. No Discord relay.</p>
+    </a>
+    <a class="flyer" href="../manual/enjoy/ollama-default">
+      <span class="o"></span>
+      <span class="pre">flyer · 04</span>
+      <h3>Ollama default.</h3>
+      <p>Cloud keys are the accessory, not the engine.</p>
+    </a>
+    <a class="flyer" href="../manual/enjoy/skills-markdown">
+      <span class="o"></span>
+      <span class="pre">flyer · 05</span>
+      <h3>Skills: plain Markdown.</h3>
+      <p>Same skill file. Any model that can read.</p>
+    </a>
+    <a class="flyer" href="../manual/enjoy/safe-gate">
+      <span class="o"></span>
+      <span class="pre">flyer · 06</span>
+      <h3>SAFE paths.</h3>
+      <p>The gate knows where your files live.</p>
+    </a>
+    <a class="flyer" href="../manual/enjoy/open-the-bench">
+      <span class="o"></span>
+      <span class="pre">flyer · 07</span>
+      <h3>Open the bench.</h3>
+      <p>Flyer not enough? Cross into workshop air.</p>
+    </a>
+    <a class="flyer" href="../workshop/">
+      <span class="o"></span>
+      <span class="pre">flyer · 08 → exit</span>
+      <h3>I brought tools.</h3>
+      <p>Right this way. The bench is open.</p>
+    </a>
+  </section>
+
+  <!-- closer -->
+  <section class="closer">
+    <p class="pull">Sometimes the right documentation is the one that <em>fits in your hand</em> while you&rsquo;re still deciding whether to say yes.</p>
+    <p class="by">— front desk, willow lobby</p>
+  </section>
+
+  <!-- colophon -->
+  <footer class="colophon">
+    <div>
+      <h4>Colophon</h4>
+      <p>Forest green &amp; Copenhagen orange. Caveat handwriting on top of Newsreader italic. The lobby sits next to <a href="../workshop/">willow-workshop</a> (the bench) and <a href="../elite/">willow-elite</a> (the glove box) in the same library.</p>
+      <p style="margin-top:14px"><span class="delta">ΔΣ = 42</span></p>
+    </div>
+    <div>
+      <h4>Flyers (markdown)</h4>
+      <p>
+        <a href="../manual/enjoy/">flyer index</a><br/>
+        <a href="../manual/enjoy/local-first">local-first</a><br/>
+        <a href="../manual/enjoy/your-graph">your graph</a><br/>
+        <a href="../manual/enjoy/safe-gate">SAFE paths</a><br/>
+        <a href="../manual/enjoy/open-the-bench">open the bench</a>
+      </p>
+    </div>
+    <div>
+      <h4>Pointers</h4>
+      <p>
+        <a href="../index.html">&larr; library / index</a><br/>
+        <a href="../workshop/">willow-workshop</a><br/>
+        <a href="../elite/">willow-elite</a><br/>
+        <a href="../library/">library / glossary</a>
+      </p>
+    </div>
+  </footer>
+
+</main>
+
+</body>
+</html>
