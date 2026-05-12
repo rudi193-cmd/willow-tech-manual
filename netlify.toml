@@ -1,0 +1,25 @@
+# Willow Tech Manual — Netlify config
+# Drop our static index.html in front of the Mintlify-exported book.
+
+[build]
+  command = "bash deploy/build.sh"
+  publish = "dist"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Delta-Sigma = "42"
+
+[[headers]]
+  for = "*.woff2"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# The Mintlify export keeps its own /assets, /_next, and chapter routes.
+# Our index.html owns "/" and links into them by relative path.
+[[redirects]]
+  from = "/manual"
+  to = "/manual/index.html"
+  status = 200

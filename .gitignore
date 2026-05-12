@@ -5,3 +5,7 @@ node_modules/
 .env
 .env.*
 docs/export.zip
+
+# front-of-house build output
+dist/
+docs/export.zip
