@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>willow-elite — Owner's Manual / 26 · W1.9 · ELITE</title>
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,500;1,6..72,700&family=JetBrains+Mono:wght@400;500;700&family=Oswald:ital,wght@0,500;0,600;0,700;1,500;1,700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --paper:#f3ecdc;
+    --paper-2:#ebe2ca;
+    --ink:#5a1a4d;        /* magenta/purple ink — single color */
+    --ink-2:#7a2a6a;
+    --ink-dim:#9d6c93;
+    --rule:#5a1a4d;
+    --hot:#a8331d;        /* used sparingly for caution */
+  }
+
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    font-family:'Oswald',sans-serif;
+    font-size:16px;line-height:1.55;
+    color:var(--ink);background:var(--paper);
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+  body::before{
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+    background-image:
+      repeating-linear-gradient(0deg, rgba(90,26,77,.018) 0 1px, transparent 1px 4px),
+      radial-gradient(900px 600px at 50% 0%, rgba(90,26,77,.04), transparent 60%);
+    mix-blend-mode:multiply;
+  }
+  ::selection{background:var(--ink);color:var(--paper)}
+  a{color:inherit}
+
+  .serif{font-family:'Newsreader',serif}
+  .mono{font-family:'JetBrains Mono',monospace}
+
+  .page{position:relative;z-index:1;max-width:820px;margin:0 auto;padding:0 32px 64px;background:var(--paper)}
+  /* booklet frame */
+  .page::before, .page::after{
+    content:"";position:absolute;top:0;bottom:0;width:1px;background:var(--ink);opacity:.18;
+  }
+  .page::before{left:0}
+  .page::after{right:0}
+
+  /* ====== rail ====== */
+  .rail{
+    display:flex;justify-content:space-between;align-items:center;gap:18px;
+    padding:14px 0 10px;
+    border-bottom:1px solid var(--ink);
+    font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--ink-2);
+  }
+  .rail a{color:var(--ink);text-decoration:none;border-bottom:1px dotted var(--ink-dim)}
+  .rail a:hover{color:var(--ink-2);border-color:var(--ink-2)}
+  .rail .right{display:flex;gap:18px}
+
+  /* ====== hero ====== */
+  .hero{
+    padding:48px 0 30px;
+    display:grid;grid-template-columns:1fr auto;gap:32px;align-items:end;
+    border-bottom:1px solid var(--ink);
+  }
+  .mark{
+    display:inline-block;
+    border:2.5px solid var(--ink);
+    padding:7px 18px 5px;
+    font-family:'Oswald',sans-serif;font-style:italic;font-weight:700;
+    font-size:42px;line-height:1;
+    letter-spacing:.04em;
+    color:var(--ink);
+    background:var(--paper);
+    margin:0 0 18px;
+  }
+  h1.title{
+    font-family:'Newsreader',serif;font-style:italic;font-weight:700;
+    font-size:54px;line-height:1.0;letter-spacing:-.015em;
+    color:var(--ink);margin:0 0 18px;
+  }
+  .yearblock{
+    font-family:'Oswald',sans-serif;font-weight:700;font-style:italic;
+    line-height:.9;color:var(--ink);
+    letter-spacing:.02em;
+  }
+  .yearblock .y{font-size:66px;display:block;margin-bottom:6px}
+  .yearblock .m{display:block;font-size:22px;letter-spacing:.06em;margin-bottom:1px}
+  .figure{
+    width:140px;height:160px;
+    display:flex;align-items:flex-end;justify-content:center;
+  }
+  .figure svg{width:100%;height:100%}
+
+  .keep{
+    margin-top:10px;
+    display:inline-flex;gap:10px;align-items:center;
+    font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--ink);
+    border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);
+    padding:6px 0;
+  }
+  .keep .pn{font-family:'JetBrains Mono',monospace;letter-spacing:.06em;color:var(--ink-2);font-size:10px}
+
+  /* ====== quickref = page 1 ====== */
+  .qr-head{
+    display:grid;grid-template-columns:auto 1fr auto;gap:18px;align-items:baseline;
+    padding:28px 0 10px;
+  }
+  .qr-head .n{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-2)}
+  .qr-head h2{margin:0;font-family:'Newsreader',serif;font-style:italic;font-weight:700;font-size:36px;letter-spacing:-.01em;color:var(--ink)}
+  .qr-head .hint{font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-2)}
+
+  .qref{
+    position:relative;
+    border:2.5px solid var(--ink);
+    padding:0;
+    background:repeating-linear-gradient(135deg, var(--paper) 0 18px, var(--paper-2) 18px 36px);
+  }
+  .qref::before{
+    content:"LAMINATE — DO NOT LOSE";
+    position:absolute;top:-14px;right:14px;
+    background:var(--ink);color:var(--paper);
+    padding:5px 12px 4px;
+    font-family:'JetBrains Mono',monospace;
+    font-size:10.5px;letter-spacing:.2em;
+  }
+  .qref-inner{
+    background:var(--paper);
+    margin:18px;
+    padding:18px 22px;
+    border:1px solid var(--ink);
+  }
+  .qref h3{
+    margin:0 0 4px;
+    font-family:'Newsreader',serif;font-style:italic;font-weight:700;
+    font-size:30px;line-height:1.0;letter-spacing:-.01em;
+  }
+  .qref .lede{
+    margin:0 0 14px;
+    font-family:'Oswald',sans-serif;font-size:13px;
+    letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2);
+  }
+  .qref .grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:0;
+    border-top:1px solid var(--ink);
+  }
+  @media (max-width:640px){.qref .grid{grid-template-columns:1fr}}
+  .qref .grid .row{
+    display:grid;grid-template-columns:1.1fr 1fr;
+    gap:14px;align-items:baseline;
+    padding:9px 14px 8px 0;
+    border-bottom:1px dotted var(--ink-dim);
+    border-right:1px solid var(--ink);
+    font-family:'Oswald',sans-serif;font-size:13.5px;letter-spacing:.04em;
+  }
+  .qref .grid .row:nth-child(even){border-right:none;padding-left:14px;padding-right:0}
+  .qref .grid .row .k{color:var(--ink-2);letter-spacing:.14em;text-transform:uppercase;font-size:11px}
+  .qref .grid .row .v{color:var(--ink);font-weight:600;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.02em}
+
+  /* ====== Honda-pattern table of contents ====== */
+  .toc-head{
+    display:grid;grid-template-columns:auto 1fr auto;gap:18px;align-items:baseline;
+    padding:42px 0 10px;
+  }
+  .toc-head .n{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-2)}
+  .toc-head h2{margin:0;font-family:'Newsreader',serif;font-style:italic;font-weight:700;font-size:36px;letter-spacing:-.01em;color:var(--ink)}
+  .toc-head .hint{font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-2)}
+
+  .toc{list-style:none;margin:0;padding:0;border-top:1px solid var(--ink)}
+  .toc li{border-bottom:1px solid var(--ink)}
+  .toc a{
+    display:grid;grid-template-columns:54px 1fr auto;gap:18px;align-items:baseline;
+    padding:14px 4px;text-decoration:none;color:var(--ink);
+    transition:background .2s;
+  }
+  .toc a:hover{background:rgba(90,26,77,.05)}
+  .toc .n{font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.14em;color:var(--ink-2)}
+  .toc .t{font-family:'Oswald',sans-serif;font-weight:600;font-size:20px;letter-spacing:.02em}
+  .toc .t small{
+    display:block;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--ink-2);font-weight:400;margin-top:3px;
+  }
+  .toc .pg{font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.12em;color:var(--ink-2)}
+
+  /* ====== maintenance card ====== */
+  .care{
+    margin-top:36px;border:1px solid var(--ink);
+    padding:22px 24px;
+    background:var(--paper);
+    position:relative;
+  }
+  .care::before{
+    content:"§ MAINTENANCE — at-a-glance";
+    position:absolute;top:-9px;left:14px;background:var(--paper);
+    padding:0 8px;font-family:'JetBrains Mono',monospace;
+    font-size:10.5px;letter-spacing:.2em;color:var(--ink-2);
+  }
+  .care h3{margin:0 0 14px;font-family:'Newsreader',serif;font-style:italic;font-weight:700;font-size:24px;color:var(--ink)}
+  .care table{width:100%;border-collapse:collapse;font-family:'Oswald',sans-serif;font-size:13px}
+  .care th, .care td{padding:7px 8px;border-bottom:1px dotted var(--ink-dim);text-align:left;letter-spacing:.04em;font-weight:500}
+  .care th{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-2);border-bottom:1px solid var(--ink)}
+  .care td.v{font-family:'JetBrains Mono',monospace;color:var(--ink);font-size:12px}
+  .care td .hot{color:var(--hot);font-weight:700}
+
+  /* ====== emergency numbers ====== */
+  .emerg{
+    margin-top:24px;
+    border:2.5px solid var(--hot);
+    padding:18px 22px 16px;
+    background:var(--paper);
+    position:relative;
+  }
+  .emerg::before{
+    content:"§ EMERGENCY";
+    position:absolute;top:-12px;left:14px;
+    background:var(--hot);color:var(--paper);padding:4px 11px 3px;
+    font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.22em;
+  }
+  .emerg h3{margin:0 0 8px;font-family:'Newsreader',serif;font-style:italic;font-weight:700;font-size:22px;color:var(--hot)}
+  .emerg p{margin:0 0 10px;font-family:'Oswald',sans-serif;font-size:13.5px;letter-spacing:.04em;color:var(--ink-2)}
+  .emerg .grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+  @media (max-width:640px){.emerg .grid{grid-template-columns:1fr}}
+  .emerg .grid .b{border:1px solid var(--ink);padding:8px 10px}
+  .emerg .grid .b .k{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-2);display:block;margin-bottom:4px}
+  .emerg .grid .b .v{font-family:'Oswald',sans-serif;font-weight:700;font-size:14px;letter-spacing:.04em;color:var(--ink)}
+
+  /* ====== colophon ====== */
+  .colophon{
+    margin-top:42px;
+    padding-top:18px;border-top:2px solid var(--ink);
+    display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:30px;
+    font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--ink-2);
+  }
+  @media (max-width:760px){.colophon{grid-template-columns:1fr;gap:18px}}
+  .colophon h4{margin:0 0 8px;font-size:10px;letter-spacing:.22em;color:var(--ink)}
+  .colophon p{margin:0 0 6px;line-height:1.7}
+  .colophon a{color:var(--ink);text-decoration:none;border-bottom:1px dotted var(--ink-dim)}
+  .colophon a:hover{color:var(--ink-2)}
+  .colophon .delta{font-family:'Newsreader',serif;font-style:italic;color:var(--hot);font-size:18px;letter-spacing:0;text-transform:none}
+
+</style>
+</head>
+<body>
+
+<main class="page" data-screen-label="willow-elite">
+
+  <!-- rail -->
+  <div class="rail">
+    <div><a href="../index.html">&larr; library</a> &nbsp;&middot;&nbsp; willow-elite &nbsp;/&nbsp; <span style="opacity:.75">the glove box</span></div>
+    <div class="right">
+      <a href="../workshop/">willow-workshop</a>
+      <a href="../enjoy/">willow-enjoy</a>
+      <a href="https://github.com/rudi193-cmd/willow-1.9">git</a>
+    </div>
+  </div>
+
+  <!-- hero -->
+  <section class="hero">
+    <div>
+      <div class="mark">WILLOW</div>
+      <h1 class="title">Owner&rsquo;s<br/>Manual</h1>
+      <div class="keep">
+        <span>Keep with vehicle</span>
+        <span class="pn">P/N 26-CH80-W1.9</span>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:flex-end;gap:14px">
+      <div class="yearblock">
+        <span class="y">26</span>
+        <span class="m">W1.9</span>
+        <span class="m">ELITE</span>
+      </div>
+      <div class="figure" aria-hidden="true">
+        <svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+          <g fill="none" stroke="#5a1a4d" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 46 Q22 22 50 22 Q78 22 78 46 L78 64 Q78 70 72 70 L66 70" />
+            <path d="M22 46 Q50 42 78 46" />
+            <path d="M30 64 Q30 78 50 80 Q70 78 72 70" />
+            <ellipse cx="42" cy="54" rx="9" ry="6" />
+            <ellipse cx="62" cy="54" rx="9" ry="6" />
+            <path d="M51 54 L53 54" />
+            <path d="M52 64 Q54 67 56 66" />
+            <path d="M48 72 Q53 74 58 72" />
+            <path d="M22 92 Q30 82 50 84 Q70 82 78 92 L82 120 L18 120 Z" />
+            <path d="M40 88 L48 102 L56 102 L64 88" />
+          </g>
+          <circle cx="42" cy="54" r="2" fill="#5a1a4d" />
+          <circle cx="62" cy="54" r="2" fill="#5a1a4d" />
+        </svg>
+      </div>
+    </div>
+  </section>
+  <img src="hero.png" alt="willow elite" style="display:block;width:100%;max-height:360px;object-fit:cover;border-bottom:1px solid var(--ink);">
+
+  <!-- page 1 = laminated quickref -->
+  <div class="qr-head">
+    <span class="n">Page 1</span>
+    <h2>The usual numbers.</h2>
+    <span class="hint">Read first</span>
+  </div>
+
+  <section class="qref">
+    <div class="qref-inner">
+      <h3>Quick reference card.</h3>
+      <p class="lede">Brutally short &middot; The card you keep in the glove box</p>
+      <div class="grid">
+        <div class="row"><span class="k">Production stack</span><span class="v">willow-1.9</span></div>
+        <div class="row"><span class="k">2.0 line</span><span class="v">willow-sandbox</span></div>
+        <div class="row"><span class="k">Health check</span><span class="v">willow_status</span></div>
+        <div class="row"><span class="k">Default model</span><span class="v">Ollama (local)</span></div>
+        <div class="row"><span class="k">System of record</span><span class="v">Postgres &middot; KB</span></div>
+        <div class="row"><span class="k">Local store</span><span class="v">SOIL</span></div>
+        <div class="row"><span class="k">MCP mode</span><span class="v">portless</span></div>
+        <div class="row"><span class="k">Auth gate</span><span class="v">SAFE</span></div>
+        <div class="row"><span class="k">Backup path</span><span class="v">~/willow/backups</span></div>
+        <div class="row"><span class="k">Log home</span><span class="v">journalctl -u willow</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Honda-pattern TOC -->
+  <div class="toc-head">
+    <span class="n">§ Contents</span>
+    <h2>Read in this order.</h2>
+    <span class="hint">Honda-pattern spine</span>
+  </div>
+
+  <ol class="toc">
+    <li><a href="../manual/owners-manual/vehicle-safety">
+      <span class="n">01</span>
+      <span class="t">Vehicle safety<small>Read before you touch hot paths</small></span>
+      <span class="pg">pp. 04–11</span>
+    </a></li>
+    <li><a href="../manual/owners-manual/operation-guide">
+      <span class="n">02</span>
+      <span class="t">Operation guide<small>Normal daily use of the stack</small></span>
+      <span class="pg">pp. 12–22</span>
+    </a></li>
+    <li><a href="../manual/owners-manual/maintenance">
+      <span class="n">03</span>
+      <span class="t">Maintenance<small>What you do on a schedule</small></span>
+      <span class="pg">pp. 23–34</span>
+    </a></li>
+    <li><a href="../manual/owners-manual/troubleshooting">
+      <span class="n">04</span>
+      <span class="t">Troubleshooting<small>Short symptom trees</small></span>
+      <span class="pg">pp. 35–46</span>
+    </a></li>
+    <li><a href="../manual/owners-manual/information">
+      <span class="n">05</span>
+      <span class="t">Information<small>Warranties, manuals, reporting</small></span>
+      <span class="pg">pp. 47–52</span>
+    </a></li>
+    <li><a href="../manual/owners-manual/specifications">
+      <span class="n">06</span>
+      <span class="t">Specifications<small>Capacities, versions, IDs</small></span>
+      <span class="pg">pp. 53–end</span>
+    </a></li>
+  </ol>
+
+  <!-- maintenance schedule -->
+  <section class="care">
+    <h3>Maintenance schedule.</h3>
+    <table>
+      <thead>
+        <tr><th>Interval</th><th>Item</th><th>Action</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Daily</td><td>Health check</td><td class="v">willow_status</td></tr>
+        <tr><td>Daily</td><td>Atom search smoke test</td><td class="v">read tool · bounded result</td></tr>
+        <tr><td>Weekly</td><td>Postgres backup</td><td class="v">pg_dump → ~/backups</td></tr>
+        <tr><td>Weekly</td><td>Grove log scan</td><td class="v">silent windows · ACK rates</td></tr>
+        <tr><td>Monthly</td><td>SAFE profile audit</td><td class="v">paths · app_ids · revoke stale</td></tr>
+        <tr><td>Monthly</td><td>Sandbox staging review</td><td class="v">ratify or archive output/*</td></tr>
+        <tr><td>On release</td><td>Schema diff</td><td class="v"><span class="hot">do not silently promote</span></td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- emergency -->
+  <section class="emerg">
+    <h3>Emergency numbers.</h3>
+    <p>Edit in place. The card you reach for at 11pm.</p>
+    <div class="grid">
+      <div class="b"><span class="k">Data loss suspected</span><span class="v">— restore: pg_restore latest</span></div>
+      <div class="b"><span class="k">Security incident</span><span class="v">— rotate SAFE keys &middot; revoke</span></div>
+      <div class="b"><span class="k">Hard down · prod</span><span class="v">— see runbook Ch. 03</span></div>
+    </div>
+  </section>
+
+  <!-- colophon -->
+  <footer class="colophon">
+    <div>
+      <h4>Colophon</h4>
+      <p>Single magenta ink. Oswald italic mark + Newsreader italic title. Section pattern mirrors a 1986 Honda CH80 Elite Owner&rsquo;s Manual; no Honda text reproduced. Keep this book <em>with the deployment</em> — linked from the repo README and the operator binder.</p>
+      <p style="margin-top:14px"><span class="delta">ΔΣ = 42</span></p>
+    </div>
+    <div>
+      <h4>Cross-links</h4>
+      <p>
+        <a href="../manual/owners-manual/quick-reference">★ quick-reference</a><br/>
+        <a href="../manual/operator-runbooks/">runbook deep-dive</a><br/>
+        <a href="../manual/architecture/">architecture summary</a><br/>
+        <a href="../library/">library / glossary</a>
+      </p>
+    </div>
+    <div>
+      <h4>Pointers</h4>
+      <p>
+        <a href="../index.html">&larr; library / index</a><br/>
+        <a href="../workshop/">willow-workshop</a><br/>
+        <a href="../enjoy/">willow-enjoy</a><br/>
+        <a href="https://github.com/rudi193-cmd/willow-1.9">git/willow-1.9</a>
+      </p>
+    </div>
+  </footer>
+
+</main>
+
+</body>
+</html>

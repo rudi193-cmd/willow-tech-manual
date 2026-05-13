@@ -1,16 +1,16 @@
 {
   "$schema": "https://mintlify.com/docs.json",
+  "_comment_top": "Proposed nav for willow-tech-manual after the IA reorg. Drop the 'Manual' tab; redistribute its 5 pages into the three tier tabs + a shared library tab. File paths are unchanged — only the navigation grouping shifts. Tabs are renamed to willow-workshop / willow-elite / willow-enjoy / library to match the index role-router.",
   "name": "Willow Technical Manual",
   "description": "Three tiers, one stack. willow-workshop for builders. willow-elite for operators. willow-enjoy for visitors. ΔΣ=42",
   "theme": "mint",
-  "icons": {
-    "library": "lucide"
-  },
+  "icons": { "library": "lucide" },
   "logo": {
     "light": "/assets/willow-mark.svg",
     "dark": "/assets/willow-mark.svg"
   },
   "favicon": "/assets/willow-mark.svg",
+  "_comment_colors": "The Mintlify chrome only shows on Mintlify-rendered chapter pages (everything under /manual/). The three tier homes and the index own /, /workshop, /elite, /enjoy — they don't use these colors at all. Picked muted neutrals so Mintlify's strip doesn't fight the per-tier registers on the chapter pages.",
   "colors": {
     "primary": "#1a1612",
     "dark": "#3a342c",
@@ -18,24 +18,13 @@
   },
   "styling": {
     "codeblocks": {
-      "theme": {
-        "dark": "github-dark",
-        "light": "github-light"
-      }
+      "theme": { "dark": "github-dark", "light": "github-light" }
     }
   },
   "navbar": {
     "links": [
-      {
-        "label": "← library / index",
-        "href": "/",
-        "icon": "book-open"
-      },
-      {
-        "label": "willow-1.9 (code)",
-        "href": "https://github.com/rudi193-cmd/willow-1.9",
-        "icon": "github"
-      }
+      { "label": "← library / index", "href": "/", "icon": "book-open" },
+      { "label": "willow-1.9 (code)", "href": "https://github.com/rudi193-cmd/willow-1.9", "icon": "github" }
     ]
   },
   "navigation": {
@@ -45,14 +34,11 @@
         "tabs": [
           {
             "tab": "willow-workshop",
+            "_comment": "Builder tier. Absorbs intro / architecture / fleet from the old Manual tab. Keeps its own 17-chapter Sticky spine + appendices.",
             "groups": [
               {
                 "group": "The bench",
-                "pages": [
-                  "introduction/index",
-                  "architecture/index",
-                  "fleet-process/index"
-                ]
+                "pages": ["introduction/index", "architecture/index", "fleet-process/index"]
               },
               {
                 "group": "Foundation",
@@ -92,9 +78,7 @@
               },
               {
                 "group": "Special parts",
-                "pages": [
-                  "workshop/17-special-parts-slimstyles"
-                ]
+                "pages": ["workshop/17-special-parts-slimstyles"]
               },
               {
                 "group": "Appendices",
@@ -109,13 +93,11 @@
           },
           {
             "tab": "willow-elite",
+            "_comment": "Operator tier. Absorbs operator-runbooks from the old Manual tab. Keeps the Honda-pattern spine + quick-reference card. The /elite/ index page (HTML, our cover) lives at the deploy root; the chapters below are Mintlify-rendered.",
             "groups": [
               {
                 "group": "Glove box",
-                "pages": [
-                  "owners-manual/index",
-                  "owners-manual/quick-reference"
-                ]
+                "pages": ["owners-manual/index", "owners-manual/quick-reference"]
               },
               {
                 "group": "Honda-pattern spine",
@@ -130,20 +112,17 @@
               },
               {
                 "group": "Runbooks",
-                "pages": [
-                  "operator-runbooks/index"
-                ]
+                "pages": ["operator-runbooks/index"]
               }
             ]
           },
           {
             "tab": "willow-enjoy",
+            "_comment": "Visitor tier. Same content as the old Enjoy tab; just renamed so the slug matches the cover.",
             "groups": [
               {
                 "group": "Lobby rack",
-                "pages": [
-                  "enjoy/index"
-                ]
+                "pages": ["enjoy/index"]
               },
               {
                 "group": "Flyers",
@@ -161,12 +140,11 @@
           },
           {
             "tab": "library",
+            "_comment": "Shared utility surface. Glossary + cross-cutting reference. All three tiers cross-link here.",
             "groups": [
               {
                 "group": "Library",
-                "pages": [
-                  "reference/glossary"
-                ]
+                "pages": ["reference/glossary"]
               }
             ]
           }
