@@ -29,14 +29,17 @@ Willow is a **local-first** stack for AI-assisted work: typed **knowledge atoms*
 
 ## Version line (non-negotiable wording)
 
-- **Willow 1.9** — production line: what you run when you need the graph, MCP, and fleet rails stable.
-- **Willow 2.0 (in progress)** — **`willow-sandbox`**: corpus ingestion, consent-gated parsers, staged outputs, experiments that must not silently become “the main stack” without an explicit merge story.
+These are **distinct machines**, each on its own spec — not rebadges of one another (willow-mcp is **not** a renamed willow-2.0; see the migration inventory).
 
-Older public trees (for example **Willow 1.1**) are **historical**. Do not route new operators there.
+- **`willow-mcp`** — **current substrate**: the re-scoped re-implementation of the SOIL/KB/dispatch core that the fleet (UTETY / Jeles / Nest) runs today. What you clone for operations.
+- **`willow-2.0`** — **legacy / migration source**: a large 169-tool surface, much of it `full`-profile-only and untested. Being migrated *from* — not "the main stack," not forward R&D.
+- **`willow-1.9`** — **archived** prior production (April–May line; clean-break rewrite of 1.7). Repo archived; do not route new operators there.
+
+Older public trees (for example **Willow 1.1 / 1.7**) are **historical**.
 
 ## What you should have after this chapter
 
-- Correct **default** for “where do I clone?” → **1.9**.
-- Correct **default** for “where is scary corpus work?” → **sandbox**, with explicit consent and no silent KB writes inside the sandbox pipeline.
+- Correct **default** for “where do I clone?” → **`willow-mcp`**.
+- Correct **default** for “where is scary corpus work?” → a **consent-gated** path with **no silent KB writes** — now a willow-mcp capability (`subject_consent`), not a separate sandbox repo.
 
 Next: [Architecture](/architecture).

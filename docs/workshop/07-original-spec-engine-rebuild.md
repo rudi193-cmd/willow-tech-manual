@@ -7,7 +7,7 @@ description: Workshop chapter — Factory-intent assembly — no hotrod surprise
 Factory-intent assembly — no hotrod surprises.
 ## Willow mapping
 
-- Clean install path: `willow-1.9` + documented versions.
+- Clean install path: `willow-mcp` + documented versions.
 - Default Ollama models per README.
 - No experimental parsers in prod path.
 - Document every deviation in KB atom.

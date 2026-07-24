@@ -7,7 +7,7 @@ description: Technical facts page — IDs, capacities, supported environments (f
 
 | Field | Your value (fill) |
 |-------|-------------------|
-| **Stack line** | 1.9 / sandbox |
+| **Stack line** | willow-mcp (current) · willow-2.0 (legacy) · willow-1.9 (archived) |
 | **Postgres database** | |
 | **SAFE `app_id`** | |
 | **Primary hostname** | |

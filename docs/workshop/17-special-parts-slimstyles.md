@@ -7,15 +7,15 @@ description: Workshop chapter — Non-factory and model-specific hardware — kn
 Non-factory and model-specific hardware — know what you are bolting on.
 ## Willow mapping
 
-- `willow-sandbox` only features.
+- `willow-2.0`-line / experimental-only features.
 - Experimental parsers and adapters.
 - Fork-only agents or skills.
-- Anything that must never ship as default in 1.9.
+- Anything that must never ship as default in `willow-mcp`.
 ## Workshop procedures (scaffold)
 
 ### 1. Identification
 
-- Tag docs and KB atoms with `line:2.0-sandbox`.
+- Tag docs and KB atoms with the line they belong to (`line:willow-2.0`, `line:willow-mcp`).
 
 ### 2. Compatibility matrix
 

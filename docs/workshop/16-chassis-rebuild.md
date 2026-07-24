@@ -7,7 +7,7 @@ description: Workshop chapter — Square the frame, torque in pattern — integr
 Square the frame, torque in pattern — integration back to whole.
 ## Willow mapping
 
-- Promote sandbox ratified atoms to KB with audit.
+- Promote ratified (consent-gated) atoms to KB with audit.
 - Merge worktree to default branch on explicit ratification.
 - Re-enable production MCP endpoints.
 - Postmortem atom if incident drove rebuild.

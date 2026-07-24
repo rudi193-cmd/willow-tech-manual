@@ -21,6 +21,7 @@ If you discover a **fleet-wide** security defect, follow your coordinated disclo
 
 ## Service manual access
 
-- **Code:** https://github.com/rudi193-cmd/willow-1.9
+- **Code (current substrate):** https://github.com/rudi193-cmd/willow-mcp
 - **Workshop book:** [Workshop tab](/workshop)
-- **2.0 sandbox:** `willow-sandbox` on disk — consent-gated; not implied production.
+- **Legacy / migration source:** `willow-2.0` (`rudi193-cmd/willow-2.0`) — a distinct machine, not implied production.
+- **Archived prior:** `willow-1.9` (`rudi193-cmd/willow-1.9`, archived).

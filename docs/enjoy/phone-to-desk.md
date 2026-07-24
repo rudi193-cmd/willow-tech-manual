@@ -7,7 +7,7 @@ description: Signed LAN hop — demo energy without the brochure lie.
 
 **Signed. Local. Fast.**
 
-A phone on Termux and a Linux desk can share **live** state — token on disk, HMAC on the wire — without inventing a relay company in the middle. (Exact wiring lives in the 1.9 README and operator paths.)
+A phone on Termux and a Linux desk can share **live** state — token on disk, HMAC on the wire — without inventing a relay company in the middle. (Exact wiring lives in the `willow-mcp` README and operator paths.)
 
 ---
 

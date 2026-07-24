@@ -1,6 +1,6 @@
 ---
 title: Willow Technical Manual
-description: README-shaped home for operators and builders — local-first stack, fleet rails, and where 2.0 lives.
+description: README-shaped home for operators and builders — local-first stack, fleet rails, and where willow-mcp lives.
 ---
 
 ## What this book is
@@ -21,7 +21,7 @@ This manual is the **long-form technical surface** for Willow: the local-first k
 
 ## Quick start (read order)
 
-1. [Introduction](/introduction) — canonical paths, version line (1.9 vs 2.0), vocabulary.
+1. [Introduction](/introduction) — canonical paths, version lines (1.9 / 2.0 / willow-mcp), vocabulary.
 2. [Architecture](/architecture) — KB, SOIL, Grove, tasks, MCP, consent boundaries.
 3. [Operator runbooks](/operator-runbooks) — bring-up, verify, recover.
 4. [Fleet process](/fleet-process) — fylgja powers, handoffs, worktrees, ingest etiquette.
@@ -35,13 +35,16 @@ This manual is the **long-form technical surface** for Willow: the local-first k
 
 ## Map of the trees (do not guess)
 
+Distinct machines, each its own spec — not rebadges of one another (willow-mcp is a re-scoped re-implementation of 2.0's core, **not** a rename).
+
 | Line | Role | Typical path on disk |
 |------|------|----------------------|
-| **Willow 1.9** | Current production stack | `willow-1.9` (clone of `rudi193-cmd/willow-1.9`) |
-| **Willow 2.0 sandbox** | Forward R&D — corpus ingest, gated parsers, staged outputs | `willow-sandbox` |
+| **willow-mcp** | **Current substrate** — what the fleet runs today | `willow-mcp` (clone of `rudi193-cmd/willow-mcp`) |
+| **willow-2.0** | Legacy / migration *source* — a distinct large-surface machine, being migrated from | `willow-2.0` |
+| **willow-1.9** | **Archived** prior production (April–May) | `willow-1.9` (`rudi193-cmd/willow-1.9`, archived) |
 | **This repo** | Documentation only — no runtime | `willow-tech-manual` |
 
-If a paragraph does not say which line it applies to, default to **1.9** for operations and **sandbox** only when the text names corpus consent, staged JSON, or 2.0 migration topics.
+If a paragraph does not say which line it applies to, default to **willow-mcp** for operations; reach for **willow-2.0** only when the text names migration-source topics.
 
 ## Contributing
 

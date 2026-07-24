@@ -20,7 +20,7 @@ Micrometer mindset — measure, select, prep before assembly.
 
 ### 2. Preparation
 
-- Staging table vs prod table discipline in sandbox.
+- Staging table vs prod table discipline (consent-gated staging).
 
 ## Notes for authors
 

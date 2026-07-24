@@ -15,8 +15,9 @@ We do **not** reproduce Honda copyrighted text or diagrams. We only mirror the *
 
 ## Canon
 
-- **Production stack:** `willow-1.9`
-- **Forward / R&D:** `willow-sandbox` (2.0 line)
+- **Current substrate:** `willow-mcp` (what the fleet runs today)
+- **Legacy / migration source:** `willow-2.0` (a distinct machine being migrated *from* — not a rename of willow-mcp)
+- **Archived prior production:** `willow-1.9` (April–May line; repo archived)
 - **Deep repair / strip / rebuild:** [Workshop (Sticky spine)](/workshop) tab
 
 ## Read order (Honda pattern)
