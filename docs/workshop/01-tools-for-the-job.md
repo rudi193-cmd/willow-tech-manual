@@ -12,9 +12,10 @@ easier.
 
 ## Willow mapping
 
-Willow is three eras of hardware in one machine — Windows-era KB → `willow-1.9`
-→ `willow-sandbox`/MCP. Like a largeframe wearing a later fork, the fasteners
-come from different decades, so the kit has to span them. Baseline bench kit:
+Willow is several eras of hardware in one machine — Windows-era KB → `willow-1.7`
+→ `willow-1.9` → `willow-2.0` → **`willow-mcp`** (the current substrate the fleet
+consumes). Like a largeframe wearing a later fork, the fasteners come from
+different decades, so the kit has to span them. Baseline bench kit:
 
 - **CLI:** `git`, `python3`, a Postgres client (`psql` or a GUI), `curl`.
 - **IDE:** Cursor / Claude Code with MCP configured (your `app_id`, not the
