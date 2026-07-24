@@ -34,7 +34,7 @@ Your deployment should have **visible invariants**: which host is prod, which DB
 
 ## Accessories and modifications
 
-**NOTICE** Aftermarket skills, extra MCP servers, and forked parsers change the **warranty story**: document them in KB with `line:2.0-sandbox` or equivalent before anyone assumes stock behavior.
+**NOTICE** Aftermarket skills, extra MCP servers, and forked parsers change the **warranty story**: document them in KB with the line they belong to (`line:willow-mcp`, `line:willow-2.0`) before anyone assumes stock behavior.
 
 ## Loading (cargo)
 

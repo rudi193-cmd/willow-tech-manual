@@ -10,7 +10,7 @@ Mixture and delivery — what gets burned in the model.
 - Prompt injection surfaces and mitigations.
 - Context pack assembly; token budget.
 - RAG vs KB query policy.
-- Corpus consent gates in sandbox.
+- Corpus consent gates (`subject_consent` in willow-mcp).
 ## Workshop procedures (scaffold)
 
 ### 1. Mixture control

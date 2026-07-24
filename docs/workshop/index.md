@@ -5,7 +5,7 @@ description: Willow technical manual laid out like Martin “Sticky” Round’s
 
 ## What this edition is
 
-This tab is a **deliberate structural mirror** of **The Complete Spanner’s Manual: Lambretta Scooters** (3rd ed., ISBN / trade codes often listed as **8100072**) — the book the scene calls the **Sticky manual**. Chapter **titles stay faithful** to that book; the **body is Willow**: Postgres, SOIL, Grove, MCP, SAFE, `willow-1.9` vs `willow-sandbox`.
+This tab is a **deliberate structural mirror** of **The Complete Spanner’s Manual: Lambretta Scooters** (3rd ed., ISBN / trade codes often listed as **8100072**) — the book the scene calls the **Sticky manual**. Chapter **titles stay faithful** to that book; the **body is Willow**: Postgres, SOIL, Grove, MCP, SAFE, `willow-mcp` (current substrate) with `willow-2.0` as the distinct legacy machine it was migrated from.
 
 Credit where it is due: **Martin “Sticky” Round** and the contributors named in the original. This site is **not** affiliated with that publisher; we are **borrowing the spine** because it is the correct genre for a grease-and-torque treatment of a living stack.
 
@@ -18,8 +18,10 @@ Credit where it is due: **Martin “Sticky” Round** and the contributors named
 
 ## Canon
 
-- **Production:** `willow-1.9`
-- **2.0 / R&D:** `willow-sandbox` (consent-gated corpus work — never silent KB promotion)
+- **Current substrate:** `willow-mcp` — what the fleet runs today
+- **Legacy / migration source:** `willow-2.0` — a distinct machine, migrated *from*, not a rename of willow-mcp
+- **Archived prior production:** `willow-1.9`
+- Consent-gated corpus work — never silent KB promotion — is a `willow-mcp` capability (`subject_consent`)
 
 ## Chapter index (same order as the Sticky manual)
 

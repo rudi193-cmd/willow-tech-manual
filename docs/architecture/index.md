@@ -17,7 +17,7 @@ Willow separates concerns so you can reason about failure:
 
 - **KB writes** go through deliberate ingest paths; agents namespace their durable notes (e.g. builder vs public vs opus tiers — follow your deployment’s rule table).
 - **Grove** is for **communication**, not for replacing atoms when a fact must survive six months.
-- **Sandbox parsers** stage to **`output/`** (or equivalent) until a human ratification step promotes into KB — the sandbox README in `willow-sandbox` is canonical for that repo’s promise.
+- **Corpus / consent-gated parsers** stage to **`output/`** (or equivalent) until a human ratification step promotes into KB — never silent promotion. In `willow-mcp` this is the `subject_consent` capability; `willow-2.0`'s sandbox README is canonical only for that distinct, legacy machine.
 
 ## Failure modes this architecture prevents
 

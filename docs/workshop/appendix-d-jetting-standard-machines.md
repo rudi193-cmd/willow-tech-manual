@@ -13,7 +13,7 @@ you rejet.
 
 - Default model routes.
 - Default embedder.
-- Baseline `consent.json` — **all-off** in sandbox.
+- Baseline consent — **all-off** by default (`subject_consent` in willow-mcp; `consent.json` in the 2.0 sandbox).
 - Standard fylgja / power pick order.
 
 ## Workshop procedures
@@ -25,8 +25,8 @@ compared against:
 
 - **Model routes:** the default route answers a trivial call.
 - **Embedder:** the default embedder loads and returns a vector.
-- **Consent:** sandbox `consent.json` is **all-off** — no corpus/KB work happens
-  silently. Grants are added deliberately, never assumed.
+- **Consent:** the gate is **all-off** by default — no corpus/KB work happens
+  silently (`subject_consent` in willow-mcp). Grants are added deliberately, never assumed.
 - **Power/pick order:** the standard fylgja selection resolves in order.
 
 - **Pass/fail (stock idles clean):** boots with consent all-off, the default

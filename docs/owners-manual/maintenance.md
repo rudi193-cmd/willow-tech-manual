@@ -24,4 +24,4 @@ For strip/rebuild depth, use **[Workshop (Sticky spine)](/workshop)** — same r
 ## Environmental responsibility
 
 - Retire hardware sanely; scrub disks that held **SAFE** keys or **Postgres** data.
-- Corpus paths: follow **PII scrub** rules before any KB promotion from sandbox outputs.
+- Corpus paths: follow **PII scrub** rules before any KB promotion from staged / consent-gated outputs.

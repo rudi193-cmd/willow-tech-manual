@@ -5,7 +5,7 @@ description: How agents, skills, worktrees, and ingest fit together without dupl
 
 ## Default router
 
-Use **fylgja powers** (`registry.json` → read **one** matched power file) before loading long skill packs. Surfaces and override roots are described in the **1.9** tree’s fylgja docs — this manual links concepts; the **source of truth** for file paths remains the repo.
+Use **fylgja powers** (`registry.json` → read **one** matched power file) before loading long skill packs. Surfaces and override roots are described in the current tree's fylgja docs (`willow-mcp`) — this manual links concepts; the **source of truth** for file paths remains the repo.
 
 ## Pull before push
 
@@ -23,7 +23,7 @@ Non-trivial code changes on main project repos belong in a **git worktree** and 
 ## Ingest and ratification
 
 - **Memory check** (`willow_memory_check`) scores duplicate/stale/dark signals before KB writes when MCP is healthy.
-- **Sandbox** outputs are **staged** until you explicitly ratify — do not treat `output/*.json` as live knowledge.
+- **Staged / consent-gated** outputs are held until you explicitly ratify — do not treat `output/*.json` as live knowledge.
 
 ## Next
 

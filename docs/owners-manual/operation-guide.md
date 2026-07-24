@@ -21,7 +21,7 @@ description: Controls and normal operation — daily use of Willow without openi
 | **KB search** | Read path for durable truth |
 | **Grove** | Coordination and human-visible state |
 | **Kart / queue** | Long or sharp tools kept out of the IDE hand |
-| **Consent.json** (`willow-sandbox`) | Fuel tap — off means off |
+| **Consent gate** (`subject_consent` in willow-mcp; `consent.json` in the 2.0 sandbox) | Fuel tap — off means off |
 
 ## Normal riding
 
