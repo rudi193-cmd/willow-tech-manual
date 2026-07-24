@@ -77,6 +77,15 @@ layer from the vault.
   (ratified atoms); leave service slack where things still move (candidates and
   open gaps).
 
+## Where these live
+
+The scripts behind these procedures are persisted in `willow-mcp/scripts/`
+(`reconstruction/`, `ratification/`, `diagnostics/`), indexed by
+`scripts/TOOL_ROLL.md`. They're an as-run snapshot — hoist the hardcoded
+`/workspace` roots and DB names for your host before reuse. The bench roll's
+canonical long-term home is `sean-data-vault/scripts/`, next to
+`restore-and-wire.sh`.
+
 ## Notes for authors
 
 Keep expanding with **exact commands**, **expected outputs**, and **pass/fail**
